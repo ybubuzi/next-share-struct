@@ -1,0 +1,18 @@
+{
+  
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "lib": ["ES2016"],
+    "module": "commonjs",
+    "outDir": "dev_dist",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2015",
+    "experimentalDecorators": true
+  },
+  "include": ["src","*.d.ts","test/*.ts"],
+  "ts-node": {
+    "files": true,
+  },
+  "files": ["global.d.ts"]
+}
