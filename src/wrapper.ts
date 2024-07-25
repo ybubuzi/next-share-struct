@@ -66,12 +66,15 @@ function GenerateObjectMateCache(offset: number, mate: ObjectMate) {
     } as ClassMateCache
     for (let i = 0; i < mate.length; i++) {
         const fieldMate = mate[i]
-        totalOffset += GetCategoryFiexdSize(fieldMate.category, fieldMate.type)
-        proxyCache.fieldCahce[fieldMate.name] = {} as any
-        proxyCache.fieldCahce[fieldMate.name].offset = offset + totalOffset
-        proxyCache.fieldCahce[fieldMate.name].category = fieldMate.category
-        proxyCache.fieldCahce[fieldMate.name].mate = fieldMate
-        proxyCache.fieldCahce[fieldMate.name].length = (fieldMate as any).length
+        
+        proxyCache.fieldCahce[fieldMate.name] = {} as any;
+        proxyCache.fieldCahce[fieldMate.name].offset = offset + totalOffset;
+        proxyCache.fieldCahce[fieldMate.name].category = fieldMate.category;
+        proxyCache.fieldCahce[fieldMate.name].mate = fieldMate;
+        proxyCache.fieldCahce[fieldMate.name].length = (
+          fieldMate as any
+        ).length;
+        totalOffset += GetCategoryFiexdSize(fieldMate.category, fieldMate.type);
         switch (fieldMate.category) {
             case TypeCategory.NUMBER:
                 const pack = NumberSizeMap[fieldMate.type]
